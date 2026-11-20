@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-surface font-sans text-ink antialiased; margin: 0; }
+}
+
+/* ---------- Scrollbar (WebKit: Chrome, Edge, Safari) ---------- */
+/* Səhifə və bütün açıq rəngli bloklar (cədvəllər və s.) */
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: #CBD0E0; border-radius: 9999px; }
+*::-webkit-scrollbar-thumb:hover { background: #B4BBD0; }
+*::-webkit-scrollbar-corner { background: transparent; }
+
+/* Tünd sol menyu */
+.sidebar-scroll::-webkit-scrollbar { width: 6px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.18); }
+.sidebar-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.32); }
+
+/* Firefox ehtiyat variantı (WebKit olmayan brauzerlər üçün) */
+@supports not selector(::-webkit-scrollbar) {
+  * { scrollbar-width: thin; scrollbar-color: #CBD0E0 transparent; }
+  .sidebar-scroll { scrollbar-color: rgba(255, 255, 255, 0.2) transparent; }
+}
